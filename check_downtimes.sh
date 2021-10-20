@@ -14,11 +14,11 @@ EOF
 
 query() {
 	mon node ctrl --type=peer --self \
-	"mon query ls downtimes -c author,host_name,service_description,entry_time,start_time,end_time,fixed,triggered_by"
+	"mon query ls downtimes -c entry_time,author,host_name,service_description,start_time,end_time,fixed,triggered_by"
 }
 
 filter_and_sort() {
-	grep '^[a-zA-Z].*[0-1]$' <<< "$@" | sort
+	grep '^[0-9].*[0-1]$' <<< "$@" | sort
 }
 
 debug=0
